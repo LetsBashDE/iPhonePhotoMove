@@ -80,6 +80,11 @@ foreach($folder in $folders){
             continue
         }
 
+        # Skip AAE files (may cause troubble)
+        if($file.name -like ".AAE"){
+            continue
+        }
+
         # Status Message
         write-host ("Move: " + $file.name + " ") -ForegroundColor White -NoNewline
 
