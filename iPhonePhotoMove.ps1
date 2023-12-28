@@ -81,7 +81,7 @@ foreach($folder in $folders){
         }
 
         # Skip AAE files (may cause troubble)
-        if($file.name -like ".AAE"){
+        if($file.name -like "*.AAE"){
             continue
         }
 
