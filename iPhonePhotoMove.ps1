@@ -99,7 +99,6 @@ foreach($folder in $folders){
         $destinationMTPlink.GetFolder.MoveHere($file)
 
         # Check result
-        
         if(Test-Path -Path $destinationFilePath){
             write-host "OK" -ForegroundColor Green
         }
