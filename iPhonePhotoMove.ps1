@@ -2,9 +2,14 @@ $phoneName = "Apple iPhone"
 $phonePath = "Internal Storage\DCIM"
 
 # Ask for target directory and create if not exist
-$destinationPath = read-host -Prompt "Zielverzeichnis"
+$destinationPath = read-host -Prompt "Target Directory / Zielverzeichnis"
 if(-not (Test-Path -Path $destinationPath)){
     mkdir -Path $destinationPath
+}
+
+if(-not (Test-Path -Path $destinationPath)){
+    write-host "Error: Could not create directory" -ForegroundColor Red
+    exit
 }
 
 # Just a shell object
