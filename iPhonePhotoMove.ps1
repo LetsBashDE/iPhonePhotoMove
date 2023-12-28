@@ -85,6 +85,13 @@ foreach($folder in $folders){
             continue
         }
 
+        # Check if file exists
+        $destinationFilePath = Join-Path $destinationSubPath $file.name
+        if(Test-Path -Path $destinationFilePath){
+            write-host ("Does exist: " + $file.name + " ") -ForegroundColor Cyan
+            continue
+        }
+
         # Status Message
         write-host ("Move: " + $file.name + " ") -ForegroundColor White -NoNewline
 
@@ -92,7 +99,7 @@ foreach($folder in $folders){
         $destinationMTPlink.GetFolder.MoveHere($file)
 
         # Check result
-        $destinationFilePath = Join-Path $destinationSubPath $file.name
+        
         if(Test-Path -Path $destinationFilePath){
             write-host "OK" -ForegroundColor Green
         }
